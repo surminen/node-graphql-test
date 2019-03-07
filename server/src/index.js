@@ -2,7 +2,7 @@ const { GraphQLServer } = require('graphql-yoga')
 const { v1 } = require('neo4j-driver')
 const driver = v1.driver(
     'bolt://localhost:7687',
-    v1.auth.basic('foo', 'bar')
+    v1.auth.basic('neo4j', 'p')
 );
 
 const typeDefs = `

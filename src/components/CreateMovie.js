@@ -36,6 +36,7 @@ class CreateMovie extends Component {
         let input;
 
         return (
+            /*
             <div>
                 <div className="flex flex-column mt3">
                     <input
@@ -53,17 +54,18 @@ class CreateMovie extends Component {
                         placeholder="The year the movie was made"
                     />
                 </div>
-                {/*<Mutation mutation={POST_MUTATION}*/}
-                          {/*variables={{ title, year }}>*/}
-                    {/*{postMutation => <button onClick={postMutation}>Submit</button>}*/}
-                {/*</Mutation>*/}
+                <Mutation mutation={POST_MUTATION}
+                          variables={{ title, year }}>
+                    {postMutation => <button onClick={postMutation}>Submit</button>}
+                </Mutation>
+                */
                 <Mutation mutation={POST_MUTATION}>
                     {(addTodo, { data }) => (
                         <div>
                             <form
                                 onSubmit={e => {
-                                    e.postMutation();
-                                    addTodo({ variables: { title: input.value } });
+                                    e.preventDefault();
+                                    addTodo({ variables: { type: input.value } });
                                     input.value = "";
                                 }}
                             >
@@ -77,7 +79,7 @@ class CreateMovie extends Component {
                         </div>
                     )}
                 </Mutation>
-            </div>
+            // </div>
         )
     }
 }
